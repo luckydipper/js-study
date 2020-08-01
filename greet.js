@@ -1,28 +1,49 @@
-const mainbord = document.querySelector(".mainPage"),
-    form = mainbord.querySelector("div:nth-child(1) form"),
-    input = form.querySelector("input"),
-    txt = document.querySelector(".notShowing"),
-    greet = document.querySelector(".notShowing"),
-    iluust = document.querySelector("#illust");
-    
-const USER_LS = "currentUser";
+/*만약 username의 localstage에 해당하는 값이 있으면 보이는 입력하세요 없어지고, from나타남
+만약 username의 localstage에 해당하는 값이 없으면 form이 없어지고, 입력하세요 생김*/
 
-function painGreet(text){
-    iluust.innerText =`hello ${text}`
+// 함수를 너무 자잘하게 나눠도 문제인 것 같다. 한줄로 잘리는 것은 그냥 코드 치는 것이 좋겠다.
+const greetPage = document.querySelector("#js-personal"),
+    statement = greetPage.querySelector("h4"),
+    form = greetPage.querySelector("form"),
+    input = form.querySelector("input");
+
+function explicitForm(){form.classList.remove("notShowing")};
+
+function hideForm(){form.classList.add("notShowing")};
+
+function greetName(name){
+    hideForm();
+    statement.innerText = `Hello~~~ ${name}`};
+
+function AskName(){
+    statement.innerText = `hi~ please give me a name`};
+
+function setName(name){
+    localStorage.setItem("username",name)
+};
+function importName(){
+    const username = input.value
+    return username
+}
+function eventprevent(event){ //submit했을 때, 이벤트를 막고 저장하고, checklocal이를 부름.
+    event.preventDefault();
+    setName(importName());
+    checkLocalstorage()
 }
 
-function loadName(){
-    const currentUser = localStorage.getItem(USER_LS);
-    if (currentUser === null){
-        
+function checkLocalstorage(){ // 지정된  txt를 보여줘야 하나 말아야 하나 숨겨야 하나 말아야 하나.
+    AskName();
+    const exist = localStorage.getItem("username");
+    if (exist === null || exist === ""){
+        explicitForm();
+        input.value = null
     } else {
-        painGreet(currentUser)
-        greet.className = "showing";
-        txt.className = "notShowing";
+        greetName(exist);
     }
 }
-
 function main(){
-    loadName()
+    form.addEventListener("submit",eventprevent)
+    checkLocalstorage()
 }
+
 main()

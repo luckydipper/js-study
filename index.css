@@ -4,11 +4,26 @@
 }
 .mainPage{
     display:grid;
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 200px 1fr;
+    border : solid;
 }
 .notShowing {
     display:none;
 }
-.showing {
-    display: block;
+#navigation{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border : solid;
+}
+#js-personal{
+    border : solid;
+}
+#js-clock{
+    margin-left: 40px;
+}
+.toDoList{
+    border:solid;
+}
+.list{
+    border:solid;
 }
