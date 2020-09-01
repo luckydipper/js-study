@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        const howCanIUseObject = 
+        {
+            iLike : "cat",
+            iAm : "hungry",
+            isThis : [1,2,3,4,5,"list"],
+            fun : function(first,second){
+                return first + second;
+            },
+            
+            objecs :
+            {logs :
+                [   
+                    {
+                    hello : function()
+                        {alert("hello")
+                        return "hi"}
+                    },
+                    
+                    {
+                    second : "second" // second = "second"
+                    },
+
+                    {
+                        um : "objecc",
+                        li : "literal object"
+                    }
+                ]
+            }
+        }
+        document.write(howCanIUseObject.objecs.logs[0].hello)
+        console.log(howCanIUseObject.objecs.logs)
+
+        let name = "hee sung"
+        console.log(`hello world ${name}`)
+        //const constructor = {}
+    </script>
+</body>
+</html>

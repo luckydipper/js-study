@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!---
+    <form id="What should i do">
+        <input choose type="text" value="what should I learn" onchange="should(this.value)">
+        <input type="zsubmit">
+    </form>
+    <p id="result"></p>-->
+    <script>
+        alert(typeof "hi")
+        var Number = 5
+        function should(numbers){
+            for (var i=0; i<numbers; i++){
+                document.write(i+"번째 반복문 실행")
+            }
+            return 1;
+        }
+
+        alert(should(Number))
+        switch (Number){
+            case "hello": alert("hellowowoowowo");
+            break;
+            case 5: alert("I intented to choose this");
+            break;
+            default : alert("what?");
+        }
+        //document.querySelector("#result").write("is this work?")
+    </script>
+</body>
+</html>
